@@ -3,10 +3,18 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 69px;
 }
 .movie {
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 200px;
+  padding: 12px;
+  background-color: #6bb9c77a;
+  border: 3px solid #1d70a2;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
 }
 /* loading spinner from codepen */
 .loading {
@@ -24,4 +32,52 @@
   100% {
     transform: rotate(360deg);
   }
+}
+body {
+  background-image: url('../img/miku.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+textarea {
+  height: 100px;
+  width: 100%;
+  background: #a0d2db;
+}
+
+button {
+  background-color: #78bc61;
+  border: 1px solid #ed474a;
+  border-radius: 20px;
+}
+
+input {
+  background: #a0d2db;
+}
+
+.input {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+#add-movie {
+  width: min-content;
+  white-space: nowrap;
+  font-size: larger;
+  font-weight: bolder;
+  border: 3px solid #ed474a;
+  padding: 12px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
 }
