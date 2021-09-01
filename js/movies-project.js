@@ -64,14 +64,18 @@ $(document).ready(() => {
 
   const ratingInput = (rating, value) => `
 <div class="input">
-		  	<label>Rating</label>
-			<input type="radio" class="rating" value=${rating} checked="${
-    parseInt(rating) === 1
-  }" />
-			<input type="radio" class="rating" value=${rating} />
-			<input type="radio" class="rating" value=${rating} />
-			<input type="radio" class="rating" value=${rating} />
-			<input type="radio" class="rating" value=${rating} />
+		  	<fieldset class="rating">
+    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+</fieldset>
 		  <div class="radio">
 `;
 
@@ -106,11 +110,11 @@ $(document).ready(() => {
     const newValues = { id };
     const container = $(`<div id="${id}" class="movie"/>`);
     const buttonContainer = $(`<div class="buttonContainer"/>`);
-    const submitButton = $("<button>Update</button>").click(() => {
+    const submitButton = $("<button class='buttonStyle'>Update</button>").click(() => {
       console.log(newValues);
       updateMovie(id, newValues);
     });
-    const deleteButton = $("<button>Delete</button>").click(() => {
+    const deleteButton = $("<button class='buttonStyle'>Delete</button>").click(() => {
       removeMovie(id);
     });
     buttonContainer.append(deleteButton, submitButton);
@@ -126,7 +130,7 @@ $(document).ready(() => {
       Input("Genre", genre, function (e) {
         newValues.genre = $(this).val();
       }),
-     ratingInput("Rating", rating, function (e) {
+     Input("Rating", rating, function (e) {
           newValues.rating = $(this).val();
         }),
       textArea("Plot", plot, function (e) {

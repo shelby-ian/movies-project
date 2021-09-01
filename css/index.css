@@ -1,3 +1,4 @@
+@import url('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
 /* use display: flex and flex-wrap: wrap to make a grid */
 #results {
   display: flex;
@@ -43,23 +44,28 @@ body {
   align-items: center;
   gap: 20px;
   padding: 20px;
-  font-family: sans-serif;
+  font-family: 'Permanent Marker', cursive;
+  color: #fff;
+  text-shadow: 1px 0 0 #1d70a2, 0 -1px 0 #1d70a2, 0 1px 0 #1d70a2, -1px 0 0 #1d70a2;
 }
 
 textarea {
   height: 100px;
   width: 100%;
   background: #a0d2db;
+  font-family: 'Inconsolata', monospace;
 }
 
 button {
   background-color: #78bc61;
-  border: 1px solid #ed474a;
+  border: 2px solid #1d70a2;
   border-radius: 20px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 input {
   background: #a0d2db;
+  font-family: 'Inconsolata', monospace;
 }
 
 .input {
@@ -73,7 +79,7 @@ input {
   white-space: nowrap;
   font-size: larger;
   font-weight: bolder;
-  border: 3px solid #ed474a;
+  border: 3px solid #1d70a2;
   padding: 12px;
 }
 
@@ -81,3 +87,48 @@ input {
   display: flex;
   justify-content: space-between;
 }
+
+.buttonStyle {
+  padding: 8px;
+  font-weight: bold;
+}
+
+/*fieldset, label { margin: 0; padding: 0; }*/
+
+/*.rating {*/
+/*  border: none;*/
+/*  float: left;*/
+/*  display: flex;*/
+/*  flex-direction: row-reverse;*/
+/*  justify-content: center;*/
+/*}*/
+
+/*.rating > input { display: none; }*/
+/*.rating > label:before {*/
+/*  margin: 5px;*/
+/*  font-size: 1.25em;*/
+/*  font-family: FontAwesome;*/
+/*  display: inline-block;*/
+/*  content: "\f005";*/
+/*}*/
+
+/*.rating > .half:before {*/
+/*  content: "\f089";*/
+/*  position: absolute;*/
+/*}*/
+
+/*.rating > label {*/
+/*  color: #ddd;*/
+/*  float: right;*/
+/*}*/
+
+/*!***** CSS Magic to Highlight Stars on Hover *****!*/
+
+/*.rating > input:checked ~ label, !* show gold star when clicked *!*/
+/*.rating:not(:checked) > label:hover, !* hover current star *!*/
+/*.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } !* hover previous stars in list *!*/
+
+/*.rating > input:checked + label:hover, !* hover current star when changing rating *!*/
+/*.rating > input:checked ~ label:hover,*/
+/*.rating > label:hover ~ input:checked ~ label, !* lighten current selection *!*/
+/*.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }*/
