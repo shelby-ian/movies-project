@@ -17,30 +17,32 @@ $(document).ready(() => {
 		  <div class="input">
 `;
 
+  function Input(label, name, value, onchange) {
+    const container = $('<div class="input" />');
+    const Label = $(`<label>${label}</label>`);
+    const input = $(`<input class="${name}" value="${value}">`).change(
+      onchange
+    );
+    return container.append(Label, input);
+  }
+
   const displayMovie = ({
     rating = 1,
     title = "New movie",
-    year,
-    genre,
-    plot,
+    year = "",
+    genre = "none",
+    plot = "",
   }) => {
-    const html = `
-	  	<div class="movie">
-		  <div class="input">
-			<label>Title</label>
-			<input class="title" value=${title} />
-		  </div>
-
-		</div>
-	  `;
-    // let html = '<div class="movie">';
-    // if (rating) html += `<p>${rating}</p>`;
-    // if (title) html += `<p>${title} (${year ?? "None"})</p>`;
-    // if (genre) html += `<p>${genre}</p>`;
-    // if (plot) html += `<p>${plot}</p>`;
-    // html += "</div>";
-
-    return html;
+    console.log(plot);
+    const container = $('<div class="movie"/>');
+    return container.append(
+      Input("Title", "title", title, function (e) {
+        console.log($(this).val());
+      }),
+      Input("Year", "year", year, () => {}),
+      Input("Genre", "genre", genre, () => {}),
+      Input("Plot", "plot", plot, () => {})
+    );
   };
 
   const showMovies = (movies) => {
