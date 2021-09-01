@@ -64,15 +64,15 @@ $(document).ready(() => {
 
   const ratingInput = (rating, value) => `
 <div class="input">
-		  	label>Rating</label>
-			<input type="checkbox" class="rating" value=${rating} checked="${
+		  	<label>Rating</label>
+			<input type="radio" class="rating" value=${rating} checked="${
     parseInt(rating) === 1
   }" />
-			<input type="checkbox" class="rating" value=${rating} />
-			<input type="checkbox" class="rating" value=${rating} />
-			<input type="checkbox" class="rating" value=${rating} />
-			<input type="checkbox" class="rating" value=${rating} />
-		  <div class="input">
+			<input type="radio" class="rating" value=${rating} />
+			<input type="radio" class="rating" value=${rating} />
+			<input type="radio" class="rating" value=${rating} />
+			<input type="radio" class="rating" value=${rating} />
+		  <div class="radio">
 `;
 
   // Generates a JQuery input given the arguments
@@ -126,6 +126,9 @@ $(document).ready(() => {
       Input("Genre", genre, function (e) {
         newValues.genre = $(this).val();
       }),
+     ratingInput("Rating", rating, function (e) {
+          newValues.rating = $(this).val();
+        }),
       textArea("Plot", plot, function (e) {
         newValues.plot = $(this).val();
       }),
