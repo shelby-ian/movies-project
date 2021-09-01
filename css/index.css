@@ -1,0 +1,27 @@
+/* use display: flex and flex-wrap: wrap to make a grid */
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.movie {
+  width: 300px;
+}
+/* loading spinner from codepen */
+.loading {
+  pointer-events: none;
+  width: 2.5em;
+  height: 2.5em;
+  border: 0.4em solid transparent;
+  border-color: #eee;
+  border-top-color: #3e67ec;
+  border-radius: 50%;
+  animation: loadingspin 1s linear infinite;
+}
+
+@keyframes loadingspin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
