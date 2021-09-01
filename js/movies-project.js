@@ -85,6 +85,15 @@ $(document).ready(() => {
     );
     return container.append(Label, input);
   }
+  function textArea(label, value, onchange) {
+    const container = $('<div class="input" />');
+    const Label = $(`<label>${label}</label>`);
+    const input = $(`<textarea class="${label}" value="${value}">${value}</textarea>`).change(
+        onchange
+    );
+    return container.append(Label, input);
+  }
+
 
   const displayMovie = ({
     id,
@@ -96,6 +105,7 @@ $(document).ready(() => {
   }) => {
     const newValues = { id };
     const container = $(`<div id="${id}" class="movie"/>`);
+    const buttonContainer = $(`<div class="buttonContainer"/>`);
     const submitButton = $("<button>Update</button>").click(() => {
       console.log(newValues);
       updateMovie(id, newValues);
@@ -103,6 +113,7 @@ $(document).ready(() => {
     const deleteButton = $("<button>Delete</button>").click(() => {
       removeMovie(id);
     });
+    buttonContainer.append(deleteButton, submitButton);
     // Append input for each movie property to container
     // return container to be appended to results
     return container.append(
@@ -115,11 +126,10 @@ $(document).ready(() => {
       Input("Genre", genre, function (e) {
         newValues.genre = $(this).val();
       }),
-      Input("Plot", plot, function (e) {
+      textArea("Plot", plot, function (e) {
         newValues.plot = $(this).val();
       }),
-      submitButton,
-      deleteButton
+      buttonContainer
     );
   };
 
